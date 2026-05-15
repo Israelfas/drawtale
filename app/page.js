@@ -1,7 +1,9 @@
 "use client";
-
 import { useMemo, useState } from "react";
 import styles from "./page.module.css";
+
+import PipelineSection from '@/components/pipeline/PipelineSection'
+import Link from 'next/link'
 
 const mathActivities = [
   { label: "Compra lista", detail: "Suma precios hasta 1000 y calcula el cambio." },
@@ -45,6 +47,7 @@ export default function Home() {
   }
 
   return (
+<<<<<<< HEAD
     <main className={styles.page}>
       <header className={styles.hero} aria-labelledby="page-title">
         <div className={styles.heroCopy}>
@@ -206,3 +209,64 @@ export default function Home() {
     </main>
   );
 }
+=======
+    <main style={{fontFamily: 'sans-serif', maxWidth: '900px', margin: '0 auto', padding: '40px 24px'}}>
+      
+      {/* HERO */}
+      <section style={{textAlign: 'center', padding: '80px 0 60px'}}>
+        <h1 style={{fontSize: '3rem', fontWeight: '700', marginBottom: '16px'}}>
+          DrawTale
+        </h1>
+        <p style={{fontSize: '1.4rem', color: '#555', marginBottom: '32px'}}>
+          Tu garabato, una historia. Tu historia, un mundo.
+        </p>
+        <p style={{fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 40px', lineHeight: '1.7', color: '#333'}}>
+          Los niños entre 4 y 10 años dibujan libremente, pero esos dibujos no hacen nada. 
+          DrawTale convierte cada dibujo en una historia narrada con inteligencia artificial.
+        </p>
+        <a href="#modulos" style={{background: '#6C47FF', color: 'white', padding: '14px 32px', borderRadius: '8px', textDecoration: 'none', fontSize: '1.1rem'}}>
+          Ver el producto
+        </a>
+      </section>
+
+      {/* MÓDULOS */}
+      <section id="modulos" style={{padding: '60px 0'}}>
+        <h2 style={{textAlign: 'center', fontSize: '2rem', marginBottom: '40px'}}>Los 3 módulos</h2>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px'}}>
+          
+          {/* Módulo 1 */}
+          <div style={{border: '1px solid #e0e0e0', borderRadius: '12px', padding: '28px'}}>
+            <div style={{fontSize: '2rem', marginBottom: '12px'}}>🎨</div>
+            <h3 style={{fontSize: '1.2rem', marginBottom: '8px'}}>Canvas de dibujo</h3>
+            <p style={{color: '#666', lineHeight: '1.6'}}>El niño dibuja libremente con colores y herramientas simples. Sin formularios, sin instrucciones complicadas.</p>
+            <span style={{display: 'inline-block', marginTop: '12px', fontSize: '0.8rem', background: '#f0f0f0', padding: '4px 10px', borderRadius: '20px'}}>Módulo 1</span>
+          </div>
+
+          {/* Módulo 2 — TUYO */}
+          <div style={{border: '2px solid #6C47FF', borderRadius: '12px', padding: '28px', background: '#faf8ff'}}>
+            <div style={{fontSize: '2rem', marginBottom: '12px'}}>🤖</div>
+            <h3 style={{fontSize: '1.2rem', marginBottom: '8px'}}>Pipeline de IA</h3>
+            <p style={{color: '#666', lineHeight: '1.6'}}>El dibujo pasa por un modelo de visión que lo interpreta, un LLM que genera la historia, y un motor de voz que la narra.</p>
+            <span style={{display: 'inline-block', marginTop: '12px', fontSize: '0.8rem', background: '#6C47FF', color: 'white', padding: '4px 10px', borderRadius: '20px'}}>Módulo 2</span>
+          </div>
+
+          {/* Módulo 3 */}
+          <div style={{border: '1px solid #e0e0e0', borderRadius: '12px', padding: '28px'}}>
+            <div style={{fontSize: '2rem', marginBottom: '12px'}}>🌍</div>
+            <h3 style={{fontSize: '1.2rem', marginBottom: '8px'}}>Mundo del niño</h3>
+            <p style={{color: '#666', lineHeight: '1.6'}}>Las historias se guardan y los personajes se reutilizan en futuras sesiones, construyendo un universo propio.</p>
+            <span style={{display: 'inline-block', marginTop: '12px', fontSize: '0.8rem', background: '#f0f0f0', padding: '4px 10px', borderRadius: '20px'}}>Módulo 3</span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{textAlign: 'center', padding: '40px 0', borderTop: '1px solid #eee', color: '#999', fontSize: '0.9rem'}}>
+        DrawTale — IS-403 · ULEAM 2026-1
+      </footer>
+
+    </main>
+  )
+}
+>>>>>>> 8656810 (feat(pipeline): agrega sección del pipeline de IA con demo mock)
