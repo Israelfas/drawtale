@@ -1,9 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import styles from "./page.module.css";
-
-import PipelineSection from '@/components/pipeline/PipelineSection'
-import Link from 'next/link'
+import PipelineSection from '@/components/pipeline/PipelineSection';
 
 const mathActivities = [
   { label: "Compra lista", detail: "Suma precios hasta 1000 y calcula el cambio." },
@@ -29,19 +27,16 @@ export default function Home() {
 
   const generatedStory = useMemo(() => {
     const subject = drawingName ? "tu dibujo" : "un dibujo misterioso";
-
     return `En ${subject}, una pequena exploradora llamada Lila encuentra una puerta brillante escondida entre formas y colores. Al abrirla, descubre un valle donde las nubes guardan mapas, las flores cuentan chistes y cada estrella aprende una palabra nueva antes de dormir. Lila nota que algo falta: el rio de ideas se ha quedado quieto. Entonces usa tres pistas del dibujo para inventar una solucion: un camino, un amigo y una luz. Con paciencia, combina las formas, escucha al viento y descubre que el rio vuelve a moverse cuando alguien comparte una historia. Desde ese dia, cada vez que Lila dibuja, el valle despierta con una aventura distinta.`;
   }, [drawingName]);
 
   function handleDrawingUpload(event) {
     const file = event.target.files?.[0];
-
     if (!file) {
       setDrawingName("");
       setPreviewUrl("");
       return;
     }
-
     setDrawingName(file.name);
     setPreviewUrl(URL.createObjectURL(file));
   }
@@ -86,7 +81,6 @@ export default function Home() {
           <h2 id="math-title">Matematicas</h2>
           <p>Operaciones hasta 1000, tablas, divisiones y fracciones basicas.</p>
         </div>
-
         <div className={styles.mathLayout}>
           <div className={styles.timerGame}>
             <div className={styles.timerTop}>
@@ -100,7 +94,6 @@ export default function Home() {
               <button>633</button>
             </div>
           </div>
-
           <div className={styles.activityGrid}>
             {mathActivities.map((activity) => (
               <article className={styles.card} key={activity.label}>
@@ -121,7 +114,6 @@ export default function Home() {
             de dibujos subidos por el nino.
           </p>
         </div>
-
         <div className={styles.languageLayout}>
           <div className={styles.uploadPanel}>
             <label className={styles.uploadBox}>
@@ -140,7 +132,6 @@ export default function Home() {
               <span>Preguntas</span>
             </div>
           </div>
-
           <div className={styles.storyPanel}>
             <p className={styles.storyLabel}>Cuento generado</p>
             <h3>{drawingName || "Dibujo sin subir todavia"}</h3>
@@ -163,7 +154,6 @@ export default function Home() {
             </fieldset>
           </div>
         </div>
-
         <div className={styles.grammarStrip}>
           {grammarCards.map((item) => (
             <span key={item}>{item}</span>
@@ -177,7 +167,6 @@ export default function Home() {
           <h2 id="science-title">Ciencias</h2>
           <p>Exploracion visual de sistemas, ciclos, materia, clima y espacio.</p>
         </div>
-
         <div className={styles.scienceLayout}>
           <div className={styles.labPanel}>
             <span>Experimento virtual</span>
@@ -201,6 +190,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PipelineSection />
+
       <footer className={styles.footer}>
         <span>Drawtale Edu</span>
         <span>Landing del Hito 1: vision del producto y modulos del equipo.</span>
