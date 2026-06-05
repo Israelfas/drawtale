@@ -1,5 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
+import Script from "next/script";
 import styles from "./page.module.css";
 import PipelineSection from '@/components/pipeline/PipelineSection';
 import FormularioInteres from '@/components/formulario/FormularioInteres';
@@ -21,6 +22,25 @@ const englishTopics = [
   "Numbers",
   "Family",
   "Food",
+];
+
+const faqItems = [
+  {
+    question: "Para que edad es DrawTale Edu?",
+    answer: "DrawTale Edu esta pensado para niños de 5 a 10 años, con actividades visuales y retos cortos adaptados a esa etapa.",
+  },
+  {
+    question: "Necesita internet?",
+    answer: "Si, necesita internet para cargar la plataforma, subir dibujos y generar cuentos o actividades interactivas.",
+  },
+  {
+    question: "Es seguro para niños?",
+    answer: "Si. La experiencia esta diseñada para acompanamiento familiar o escolar, con contenido educativo y lenguaje apropiado para ninos.",
+  },
+  {
+    question: "En que dispositivos funciona?",
+    answer: "Funciona en computadoras, tablets y celulares modernos con navegador web actualizado.",
+  },
 ];
 
 export default function Home() {
@@ -51,7 +71,7 @@ export default function Home() {
       <header className={styles.hero} aria-labelledby="page-title">
         <div className={styles.heroCopy}>
           <p className={styles.kicker}>Drawtale Edu</p>
-          <h1 id="page-title">Aula interactiva para ninos de 7 a 10 anos</h1>
+          <h1 id="page-title">Aula interactiva para niños de 5 a 10 años</h1>
           <p>
             Tres bloques de aprendizaje conectan matematicas, lengua e ingles
             con retos breves, visuales y una experiencia creativa basada en dibujos.
@@ -75,8 +95,8 @@ export default function Home() {
           <h2 id="problem-title">Practicar en casa suele sentirse repetitivo y poco conectado con la creatividad.</h2>
         </div>
         <p>
-          Ayudamos a ninos de 7 a 10 anos y a sus familias a reforzar matematicas,
-          lengua e ingles con actividades visuales y cuentos creados desde sus
+          Ayudamos a niños de 5 a 10 años y a sus familias a reforzar matematicas,
+          lengua y ciencias con actividades visuales y cuentos creados desde sus
           propios dibujos, para aumentar practica, comprension y motivacion semanal.
         </p>
       </section>
@@ -200,24 +220,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PIPELINE IA */}
-      <PipelineSection />
+      <section className={styles.faqSection} aria-labelledby="faq-title">
+        <div className={styles.blockHeader}>
+          <p className={styles.kicker}>FAQ</p>
+          <h2 id="faq-title">Preguntas frecuentes</h2>
+        </div>
 
-      {/* GALERÍA DE WIREFRAMES */}
-      <Galeria />
+        <div className={styles.faqList} data-faq-list>
+          {faqItems.map((item, index) => {
+            const answerId = `faq-answer-${index}`;
 
-      {/* FAQ */}
-      <FAQ />
+            return (
+              <article className={styles.faqItem} key={item.question}>
+                <button
+                  className={styles.faqQuestion}
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls={answerId}
+                  data-faq-toggle
+                >
+                  <span>{item.question}</span>
+                  <span className={styles.faqIcon} aria-hidden="true">+</span>
+                </button>
+                <p id={answerId} className={styles.faqAnswer} data-faq-answer hidden>
+                  {item.answer}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
 
-      {/* FORMULARIO */}
-      <FormularioInteres />
-
-      {/* FOOTER */}
       <footer className={styles.footer}>
         <span>Drawtale Edu</span>
-        <span>Landing del Hito 2: validacion y modulos del equipo.</span>
+        <span>Landing del Hito 1: vision del producto y modulos del equipo.</span>
+        <span>Landing del Hito 2: Landing mejorada con JS puro: formulario funcional, FAQ interactivo, captura de interés</span>
       </footer>
-
+      <Script src="/js/faq.js" strategy="afterInteractive" />
     </main>
   );
 }
