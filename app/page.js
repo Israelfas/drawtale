@@ -2,6 +2,9 @@
 import { useMemo, useState } from "react";
 import styles from "./page.module.css";
 import PipelineSection from '@/components/pipeline/PipelineSection';
+import FormularioInteres from '@/components/formulario/FormularioInteres';
+import FAQ from '@/components/faq/FAQ';
+import Galeria from '@/components/galeria/Galeria';
 
 const mathActivities = [
   { label: "Compra lista", detail: "Suma precios hasta 1000 y calcula el cambio." },
@@ -12,12 +15,12 @@ const mathActivities = [
 
 const grammarCards = ["sustantivos", "verbos", "adjetivos", "tildes"];
 
-const scienceTopics = [
-  "Cuerpo humano",
-  "Plantas y animales",
-  "Materia y energia",
-  "Tiempo y clima",
-  "Tierra y espacio",
+const englishTopics = [
+  "Animals",
+  "Colors",
+  "Numbers",
+  "Family",
+  "Food",
 ];
 
 export default function Home() {
@@ -43,12 +46,14 @@ export default function Home() {
 
   return (
     <main className={styles.page}>
+
+      {/* HERO */}
       <header className={styles.hero} aria-labelledby="page-title">
         <div className={styles.heroCopy}>
           <p className={styles.kicker}>Drawtale Edu</p>
           <h1 id="page-title">Aula interactiva para ninos de 7 a 10 anos</h1>
           <p>
-            Tres bloques de aprendizaje conectan matematicas, lengua y ciencias
+            Tres bloques de aprendizaje conectan matematicas, lengua e ingles
             con retos breves, visuales y una experiencia creativa basada en dibujos.
           </p>
         </div>
@@ -58,11 +63,12 @@ export default function Home() {
           <div className={styles.progressGrid}>
             <span style={{ "--level": "82%" }}>Mat</span>
             <span style={{ "--level": "94%" }}>IA</span>
-            <span style={{ "--level": "76%" }}>Cie</span>
+            <span style={{ "--level": "76%" }}>Eng</span>
           </div>
         </div>
       </header>
 
+      {/* PROBLEMA */}
       <section className={styles.problemBand} aria-labelledby="problem-title">
         <div>
           <p className={styles.kicker}>Problema identificado</p>
@@ -70,11 +76,12 @@ export default function Home() {
         </div>
         <p>
           Ayudamos a ninos de 7 a 10 anos y a sus familias a reforzar matematicas,
-          lengua y ciencias con actividades visuales y cuentos creados desde sus
+          lengua e ingles con actividades visuales y cuentos creados desde sus
           propios dibujos, para aumentar practica, comprension y motivacion semanal.
         </p>
       </section>
 
+      {/* BLOQUE 1 — MATEMÁTICAS */}
       <section className={styles.block} aria-labelledby="math-title">
         <div className={styles.blockHeader}>
           <p className={styles.kicker}>Bloque 1</p>
@@ -105,6 +112,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* BLOQUE 2 — LENGUA CON IA */}
       <section className={`${styles.block} ${styles.languageBlock}`} aria-labelledby="language-title">
         <div className={styles.blockHeader}>
           <p className={styles.kicker}>Bloque 2</p>
@@ -161,42 +169,55 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.block} aria-labelledby="science-title">
+      {/* BLOQUE 3 — INGLÉS */}
+      <section className={styles.block} aria-labelledby="english-title">
         <div className={styles.blockHeader}>
           <p className={styles.kicker}>Bloque 3</p>
-          <h2 id="science-title">Ciencias</h2>
-          <p>Exploracion visual de sistemas, ciclos, materia, clima y espacio.</p>
+          <h2 id="english-title">Ingles</h2>
+          <p>Vocabulario, frases y pronunciacion generados desde el dibujo del nino.</p>
         </div>
         <div className={styles.scienceLayout}>
           <div className={styles.labPanel}>
-            <span>Experimento virtual</span>
-            <h3>Estados de la materia</h3>
+            <span>Palabra del dibujo</span>
+            <h3>Dragon — Dragon</h3>
             <div className={styles.matterDemo}>
-              <span>Solido</span>
-              <span>Liquido</span>
-              <span>Gas</span>
+              <span>Noun</span>
+              <span>Adjective</span>
+              <span>Verb</span>
             </div>
           </div>
           <div className={styles.topicList}>
-            {scienceTopics.map((topic) => (
+            {englishTopics.map((topic) => (
               <button key={topic}>{topic}</button>
             ))}
           </div>
           <div className={styles.quizPanel}>
-            <span>Quiz con imagenes</span>
-            <p>Que planeta es conocido como el planeta rojo?</p>
-            <button>Marte</button>
-            <button>Jupiter</button>
+            <span>Quiz en ingles</span>
+            <p>What color is the dragon in the drawing?</p>
+            <button>Green</button>
+            <button>Blue</button>
           </div>
         </div>
       </section>
 
+      {/* PIPELINE IA */}
       <PipelineSection />
 
+      {/* GALERÍA DE WIREFRAMES */}
+      <Galeria />
+
+      {/* FAQ */}
+      <FAQ />
+
+      {/* FORMULARIO */}
+      <FormularioInteres />
+
+      {/* FOOTER */}
       <footer className={styles.footer}>
         <span>Drawtale Edu</span>
-        <span>Landing del Hito 1: vision del producto y modulos del equipo.</span>
+        <span>Landing del Hito 2: validacion y modulos del equipo.</span>
       </footer>
+
     </main>
   );
 }
