@@ -44,7 +44,7 @@ export default function Home() {
       <header className={styles.hero} aria-labelledby="page-title">
         <div className={styles.heroCopy}>
           <p className={styles.kicker}>Drawtale Edu</p>
-          <h1 id="page-title">Aula interactiva para ninos de 7 a 10 anos</h1>
+          <h1 id="page-title">Aula interactiva para ninos de 7 a 10 años</h1>
           <p>Tres bloques de aprendizaje conectan matematicas, lengua e ingles con retos breves, visuales y una experiencia creativa basada en dibujos.</p>
         </div>
         <div className={styles.heroPanel} aria-label="Resumen de progreso">
