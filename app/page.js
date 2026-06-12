@@ -96,7 +96,7 @@ export default function Home() {
         </div>
         <p>
           Ayudamos a niños de 5 a 10 años y a sus familias a reforzar matematicas,
-          lengua y ciencias con actividades visuales y cuentos creados desde sus
+          lengua e ingles con actividades visuales y cuentos creados desde sus
           propios dibujos, para aumentar practica, comprension y motivacion semanal.
         </p>
       </section>
