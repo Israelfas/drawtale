@@ -1,6 +1,7 @@
 // Punto de entrada de la landing Drawtale Edu (Hito 2 — TypeScript + Vite).
 
 import "./style.css";
+import { iniciarMatematicas } from "./modules/matematicas";
 import { iniciarLengua } from "./modules/lengua";
 import { iniciarIngles } from "./modules/ingles";
 import { iniciarGaleria } from "./modules/galeria";
@@ -11,7 +12,7 @@ async function iniciar(): Promise<void> {
   iniciarLengua();
   iniciarIngles();
   iniciarFormulario();
-  await Promise.all([iniciarGaleria(), iniciarFaq()]);
+  await Promise.all([iniciarMatematicas(), iniciarGaleria(), iniciarFaq()]);
 }
 
 void iniciar();

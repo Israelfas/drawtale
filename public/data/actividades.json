@@ -1,0 +1,6 @@
+[
+  { "label": "Compra lista", "detail": "Suma precios hasta 1000 y calcula el cambio." },
+  { "label": "Tablas relámpago", "detail": "Multiplicaciones del 1 al 10 contra reloj." },
+  { "label": "Reparte dulces", "detail": "Divisiones simples con grupos iguales." },
+  { "label": "Pizza fraccionada", "detail": "Mitad, cuarto y tercio con piezas visuales." }
+]
