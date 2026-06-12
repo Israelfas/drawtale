@@ -106,12 +106,13 @@
         <div class="languageLayout">
           <!-- Panel izquierdo: subir dibujo -->
           <div class="uploadPanel">
-            <label class="uploadBox" id="upload-area">
-              <span>Subir dibujo JPG o PNG</span>
-              <input type="file" id="drawing-input" accept="image/png,image/jpeg" />
-            </label>
-            <img class="preview" id="drawing-preview" alt="Vista previa del dibujo subido" hidden />
-            <div class="previewPlaceholder" id="drawing-placeholder">Vista previa del dibujo</div>
+            <div class="uploadBox" id="upload-area">
+              <label id="upload-label" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;width:100%;height:100%;">
+                <span>Subir dibujo JPG o PNG</span>
+                <input type="file" id="drawing-input" accept="image/png,image/jpeg" class="visuallyHidden" />
+              </label>
+              <img class="preview" id="drawing-preview" alt="Vista previa del dibujo subido" hidden />
+            </div>
             <button type="button" id="btn-generar" class="mathStart" disabled>Generar cuento</button>
           </div>
 

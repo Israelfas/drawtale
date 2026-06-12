@@ -1,5 +1,5 @@
 // Bloque 2 — Lengua con IA
-// Flujo: subir dibujo → Claude Vision genera cuento + pregunta → niño responde
+// Flujo: subir dibujo → Gemini Vision genera cuento + pregunta → niño responde
 
 import { $ } from "../dom";
 import { guardarStorage, leerStorage } from "../storage";
@@ -13,28 +13,28 @@ y responde SOLO con JSON válido, sin markdown ni texto extra, con esta estructu
   "pregunta": "Una pregunta de comprensión lectora sobre el cuento, dirigida al niño."
 }`;
 
-async function llamarClaude(b64: string, mediaType: string): Promise<{ cuento: string; pregunta: string }> {
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 1000,
-      messages: [{
-        role: "user",
-        content: [
-          { type: "image", source: { type: "base64", media_type: mediaType, data: b64 } },
-          { type: "text", text: PROMPT }
-        ]
-      }]
-    })
-  });
+async function llamarGemini(b64: string, mediaType: string): Promise<{ cuento: string; pregunta: string }> {
+  const key = import.meta.env.VITE_GEMINI_KEY ?? "";
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{
+          parts: [
+            { inline_data: { mime_type: mediaType, data: b64 } },
+            { text: PROMPT }
+          ]
+        }]
+      })
+    }
+  );
 
   if (!res.ok) throw new Error(`API error ${res.status}`);
 
   const data = await res.json();
-  const raw = (data.content as Array<{ type: string; text?: string }>)
-    .find(b => b.type === "text")?.text ?? "";
+  const raw: string = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
 
   return JSON.parse(raw.replace(/```json|```/g, "").trim()) as { cuento: string; pregunta: string };
 }
@@ -48,9 +48,8 @@ function setStep(n: 1 | 2 | 3): void {
 
 export function iniciarLengua(): void {
   const inputDibujo   = $<HTMLInputElement>("#drawing-input");
-  const uploadArea    = $<HTMLElement>("#upload-area");
+  const uploadLabel   = $<HTMLElement>("#upload-label");
   const thumb         = $<HTMLImageElement>("#drawing-preview");
-  const placeholder   = $<HTMLElement>("#drawing-placeholder");
   const btnGenerar    = $<HTMLButtonElement>("#btn-generar");
   const loader        = $<HTMLElement>("#story-loader");
   const loaderMsg     = $<HTMLElement>("#loader-msg");
@@ -64,22 +63,19 @@ export function iniciarLengua(): void {
   let b64: string | null = null;
   let mediaType = "image/jpeg";
 
-  // Restaurar respuesta previa
   respuesta.value = leerStorage<string>(CLAVE_RESPUESTA, "");
 
   inputDibujo.addEventListener("change", () => {
     const archivo = inputDibujo.files?.[0];
     if (!archivo) return;
-
     mediaType = archivo.type;
     const reader = new FileReader();
     reader.onload = e => {
       const result = e.target?.result as string;
       b64 = result.split(",")[1] ?? "";
       thumb.src = result;
+      uploadLabel.hidden = true;
       thumb.hidden = false;
-      placeholder.hidden = true;
-      uploadArea.dataset.loaded = "true";
       btnGenerar.disabled = false;
     };
     reader.readAsDataURL(archivo);
@@ -104,11 +100,10 @@ export function iniciarLengua(): void {
     }, 1800);
 
     try {
-      const { cuento, pregunta } = await llamarClaude(b64, mediaType);
+      const { cuento, pregunta } = await llamarGemini(b64, mediaType);
 
       clearInterval(loaderInterval);
       loader.hidden = true;
-
       cuentoEl.textContent = cuento;
       preguntaEl.textContent = pregunta;
       resultArea.hidden = false;

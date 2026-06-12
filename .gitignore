@@ -15,3 +15,7 @@ dev-server.err
 
 # typescript
 *.tsbuildinfo
+
+# variables de entorno (API keys)
+.env
+.env.local
