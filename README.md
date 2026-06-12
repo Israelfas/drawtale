@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DrawTale Edu — Hito 2
 
-## Getting Started
+Landing interactiva del proyecto autónomo de IS-403 (Aplicaciones para el Cliente Web).
+Construida en **TypeScript + Vite**, con módulos ES6, datos en JSON y persistencia en localStorage.
 
-First, run the development server:
+## Equipo (Grupo D)
+
+| Integrante | Módulo / sección |
+|---|---|
+| Robert García | Bloque 1 — Matemáticas (reto con temporizador, validación y puntaje persistido) |
+| Marcelo Mejía | Bloque 2 — Lengua con IA, formulario de interés, FAQ y galería |
+| Luis Mario Cedeño | Bloque 3 — Inglés / Mundo |
+
+## Cómo correr el proyecto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # levanta el servidor local de Vite
+npm run build    # compila TypeScript en modo strict + build de producción
+npm run preview  # sirve el build de producción
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+index.html              Markup completo de la landing
+public/data/*.json      Datos tipados que se cargan vía fetch
+src/main.ts             Punto de entrada: inicializa todos los módulos
+src/types.ts            Interfaces compartidas
+src/dom.ts              Helpers tipados de DOM y fetch de JSON
+src/storage.ts          Lectura/escritura tipada de localStorage (JSON)
+src/modules/*.ts        Un módulo ES6 por sección de la landing
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Interactividad por sección
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Matemáticas**: reto contra reloj (90 s) con preguntas aleatorias, validación
+  del input en tiempo real, puntaje en vivo y mejor puntaje guardado en localStorage.
+- **Lengua con IA**: subida de dibujo con vista previa, cuento generado y respuesta
+  de comprensión lectora persistida.
+- **Inglés**: vocabulario por temas y quiz con feedback inmediato.
+- **Galería**: wireframes navegables cargados desde `wireframes.json`.
+- **FAQ**: acordeones accesibles cargados desde `faq.json`.
+- **Formulario de interés**: validación en tiempo real de nombre y email, registro
+  de interesados en localStorage y contador de registrados.

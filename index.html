@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Drawtale Edu — Aula interactiva para niños</title>
+    <meta
+      name="description"
+      content="Drawtale Edu conecta matemáticas, lengua e inglés con actividades visuales y cuentos creados desde los dibujos de los niños."
+    />
+  </head>
+  <body>
+    <main class="page">
+      <!-- HERO -->
+      <header class="hero" aria-labelledby="page-title">
+        <div class="heroCopy">
+          <p class="kicker">Drawtale Edu</p>
+          <h1 id="page-title">Aula interactiva para niños de 5 a 10 años</h1>
+          <p>
+            Tres bloques de aprendizaje conectan matemáticas, lengua e inglés
+            con retos breves, visuales y una experiencia creativa basada en dibujos.
+          </p>
+        </div>
+        <div class="heroPanel" aria-label="Resumen de progreso">
+          <span>3 bloques</span>
+          <strong>Aprender, crear y comprobar</strong>
+          <div class="progressGrid">
+            <span style="--level: 82%">Mat</span>
+            <span style="--level: 94%">IA</span>
+            <span style="--level: 76%">Eng</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- PROBLEMA -->
+      <section class="problemBand" aria-labelledby="problem-title">
+        <div>
+          <p class="kicker">Problema identificado</p>
+          <h2 id="problem-title">Practicar en casa suele sentirse repetitivo y poco conectado con la creatividad.</h2>
+        </div>
+        <p>
+          Ayudamos a niños de 5 a 10 años y a sus familias a reforzar matemáticas,
+          lengua e inglés con actividades visuales y cuentos creados desde sus
+          propios dibujos, para aumentar práctica, comprensión y motivación semanal.
+        </p>
+      </section>
+
+      <!-- BLOQUE 1 — MATEMÁTICAS -->
+      <section class="block" aria-labelledby="math-title">
+        <div class="blockHeader">
+          <p class="kicker">Bloque 1</p>
+          <h2 id="math-title">Matemáticas</h2>
+          <p>Operaciones hasta 1000, tablas, divisiones y fracciones básicas.</p>
+        </div>
+        <div class="mathLayout">
+          <div class="timerGame">
+            <div class="timerTop">
+              <span>Reto con temporizador</span>
+              <strong id="math-timer">01:30</strong>
+            </div>
+            <p class="equation" id="math-question">¿Listo para practicar?</p>
+            <form id="math-form" class="mathForm" novalidate>
+              <label class="visuallyHidden" for="math-answer">Tu respuesta</label>
+              <input
+                id="math-answer"
+                name="respuesta"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Tu respuesta"
+                disabled
+              />
+              <button type="submit" id="math-check" disabled>Comprobar</button>
+            </form>
+            <p id="math-feedback" class="mathFeedback" role="status" aria-live="polite"></p>
+            <div class="mathStats">
+              <span>Puntaje: <strong id="math-score">0</strong></span>
+              <span>Mejor puntaje: <strong id="math-best">0</strong></span>
+            </div>
+            <button type="button" id="math-start" class="mathStart">Comenzar reto</button>
+          </div>
+          <div class="activityGrid" id="activity-grid" aria-label="Actividades de matemáticas">
+            <!-- Actividades cargadas desde /data/actividades.json -->
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE 2 — LENGUA CON IA -->
+      <section class="block languageBlock" aria-labelledby="language-title">
+        <div class="blockHeader">
+          <p class="kicker">Bloque 2</p>
+          <h2 id="language-title">Lengua con IA creativa</h2>
+          <p>
+            Lectura comprensiva, gramática, ortografía y escritura creativa a partir
+            de dibujos subidos por el niño.
+          </p>
+        </div>
+        <div class="languageLayout">
+          <div class="uploadPanel">
+            <label class="uploadBox">
+              <span>Subir dibujo JPG o PNG</span>
+              <input type="file" id="drawing-input" accept="image/png,image/jpeg" />
+            </label>
+            <img class="preview" id="drawing-preview" alt="Vista previa del dibujo subido" hidden />
+            <div class="previewPlaceholder" id="drawing-placeholder">Vista previa del dibujo</div>
+            <div class="techStack">
+              <span>Visión IA</span>
+              <span>Cuento 200-300 palabras</span>
+              <span>3-4 imágenes</span>
+              <span>Preguntas</span>
+            </div>
+          </div>
+          <div class="storyPanel">
+            <p class="storyLabel">Cuento generado</p>
+            <h3 id="drawing-name">Dibujo sin subir todavía</h3>
+            <p id="story-text"></p>
+            <div class="storyImages" aria-label="Imágenes generadas de ejemplo">
+              <span>Escena 1</span>
+              <span>Escena 2</span>
+              <span>Escena 3</span>
+              <span>Escena 4</span>
+            </div>
+            <fieldset class="questionBox">
+              <legend>Comprensión lectora</legend>
+              <label for="story-answer">¿Qué hizo Lila para resolver el problema?</label>
+              <textarea id="story-answer" placeholder="Escribe tu respuesta..."></textarea>
+              <p class="storyHint" id="story-saved" aria-live="polite"></p>
+            </fieldset>
+          </div>
+        </div>
+        <div class="grammarStrip">
+          <span>sustantivos</span>
+          <span>verbos</span>
+          <span>adjetivos</span>
+          <span>tildes</span>
+        </div>
+      </section>
+
+      <!-- BLOQUE 3 — INGLÉS -->
+      <section class="block" aria-labelledby="english-title">
+        <div class="blockHeader">
+          <p class="kicker">Bloque 3</p>
+          <h2 id="english-title">Inglés</h2>
+          <p>Vocabulario, frases y pronunciación generados desde el dibujo del niño.</p>
+        </div>
+        <div class="scienceLayout">
+          <div class="labPanel">
+            <span>Palabra del dibujo</span>
+            <h3 id="english-word">Dragon — Dragón</h3>
+            <div class="matterDemo">
+              <span>Noun</span>
+              <span>Adjective</span>
+              <span>Verb</span>
+            </div>
+          </div>
+          <div class="topicList" id="topic-list" aria-label="Temas de vocabulario">
+            <!-- Temas renderizados por ingles.ts -->
+          </div>
+          <div class="quizPanel">
+            <span>Quiz en inglés</span>
+            <p id="quiz-question">What color is the dragon in the drawing?</p>
+            <div class="quizOptions" id="quiz-options">
+              <button type="button" data-correct="true">Green</button>
+              <button type="button">Blue</button>
+            </div>
+            <p class="quizFeedback" id="quiz-feedback" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERÍA DE WIREFRAMES -->
+      <section class="block" aria-labelledby="galeria-title">
+        <div class="blockHeader">
+          <p class="kicker">Wireframes del producto</p>
+          <h2 id="galeria-title">Así se verá DrawTale Edu</h2>
+        </div>
+        <div class="galeriaLayout">
+          <div class="galeriaPreview" id="galeria-preview">
+            <div class="galeriaEmoji" id="galeria-emoji">🏠</div>
+            <span class="galeriaBadge" id="galeria-badge">PANTALLA 1 DE 5</span>
+          </div>
+          <div class="galeriaInfo">
+            <h3 id="galeria-titulo">Pantalla de inicio</h3>
+            <p id="galeria-desc"></p>
+            <div class="galeriaNav">
+              <button type="button" id="galeria-prev">← Anterior</button>
+              <button type="button" id="galeria-next">Siguiente →</button>
+            </div>
+            <div class="galeriaDots" id="galeria-dots"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faqSection" aria-labelledby="faq-title">
+        <div class="blockHeader">
+          <p class="kicker">FAQ</p>
+          <h2 id="faq-title">Preguntas frecuentes</h2>
+        </div>
+        <div class="faqList" id="faq-list">
+          <!-- Preguntas cargadas desde /data/faq.json -->
+        </div>
+      </section>
+
+      <!-- FORMULARIO DE INTERÉS -->
+      <section class="block interesBlock" aria-labelledby="interes-title">
+        <div class="blockHeader">
+          <p class="kicker">¿Te interesa?</p>
+          <h2 id="interes-title">Déjanos tus datos y te avisamos</h2>
+          <p>Los primeros registrados tendrán acceso gratuito al lanzamiento.</p>
+        </div>
+        <form id="interes-form" class="interesForm" novalidate>
+          <div class="campo">
+            <label for="interes-nombre">Tu nombre</label>
+            <input id="interes-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" />
+            <p class="campoError" id="error-nombre"></p>
+          </div>
+          <div class="campo">
+            <label for="interes-email">Tu email</label>
+            <input id="interes-email" name="email" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" />
+            <p class="campoError" id="error-email"></p>
+          </div>
+          <button type="submit">Quiero saber más</button>
+          <p class="interesMensaje" id="interes-mensaje" role="status" aria-live="polite"></p>
+        </form>
+        <p class="interesContador" id="interes-contador"></p>
+      </section>
+
+      <footer class="footer">
+        <span>Drawtale Edu</span>
+        <span>Hito 2: landing interactiva en TypeScript + Vite, con datos en JSON y localStorage.</span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

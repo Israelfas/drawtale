@@ -1,0 +1,37 @@
+[
+  {
+    "titulo": "Pantalla de Inicio",
+    "descripcion": "El padre o el niño elige el bloque: Lengua, Matemáticas o Inglés. Diseño simple, un botón por bloque.",
+    "emoji": "🏠",
+    "color": "#6C47FF",
+    "bg": "rgba(108,71,255,0.08)"
+  },
+  {
+    "titulo": "Canvas de dibujo",
+    "descripcion": "Área de dibujo libre con paleta de colores, borrador y botón para generar la historia. Sin instrucciones complicadas.",
+    "emoji": "🎨",
+    "color": "#2f7d68",
+    "bg": "rgba(47,125,104,0.08)"
+  },
+  {
+    "titulo": "Cuento generado",
+    "descripcion": "La IA genera un cuento desde el dibujo. El niño puede leerlo o escucharlo narrado con un clic.",
+    "emoji": "📖",
+    "color": "#b85627",
+    "bg": "rgba(184,86,39,0.08)"
+  },
+  {
+    "titulo": "Ejercicio de Matemáticas",
+    "descripcion": "Ejercicio de suma, resta o multiplicación generado desde los elementos del dibujo del niño.",
+    "emoji": "➕",
+    "color": "#0ea5e9",
+    "bg": "rgba(14,165,233,0.08)"
+  },
+  {
+    "titulo": "Vocabulario en Inglés",
+    "descripcion": "Palabras en inglés identificadas desde el dibujo, con pronunciación y ejemplo en una frase simple.",
+    "emoji": "🔤",
+    "color": "#7c3aed",
+    "bg": "rgba(124,58,237,0.08)"
+  }
+]

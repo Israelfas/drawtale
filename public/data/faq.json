@@ -1,0 +1,22 @@
+[
+  {
+    "pregunta": "¿Para qué edad es DrawTale Edu?",
+    "respuesta": "Para niños de 5 a 10 años. El diseño y el contenido están adaptados a esa etapa de desarrollo cognitivo y creativo."
+  },
+  {
+    "pregunta": "¿Necesita conexión a internet?",
+    "respuesta": "Sí, la generación de cuentos y ejercicios requiere conexión. Estamos explorando un modo offline para versiones futuras."
+  },
+  {
+    "pregunta": "¿Es seguro para niños?",
+    "respuesta": "Sí. No hay publicidad, no se comparten datos con terceros y los padres tienen control total del contenido generado."
+  },
+  {
+    "pregunta": "¿En qué dispositivos funciona?",
+    "respuesta": "En cualquier dispositivo con navegador: tablet, computador o celular. Recomendamos tablet para mejor experiencia de dibujo."
+  },
+  {
+    "pregunta": "¿Tiene costo?",
+    "respuesta": "Estamos en fase de validación. Los primeros usuarios que se registren tendrán acceso gratuito al lanzamiento."
+  }
+]
