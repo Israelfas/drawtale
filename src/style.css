@@ -1037,6 +1037,30 @@ button {
   font-weight: 700;
 }
 
+/* ===== Steps bar (Bloque 2) ===== */
+.stepsBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepsBar span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #60746b;
+  transition: color 0.2s;
+}
+
+.stepArrow {
+  color: rgba(255,255,255,0.25);
+  font-size: 13px;
+}
+
+.stepsBar span[data-state="active"] { color: #ffffff; }
+.stepsBar span[data-state="done"]   { color: #f2b84b; }
+.stepsBar span[data-state="idle"]   { color: #60746b; }
+
 /* ===== Responsive ===== */
 @media (max-width: 860px) {
   .page {

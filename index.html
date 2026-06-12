@@ -91,49 +91,52 @@
         <div class="blockHeader">
           <p class="kicker">Bloque 2</p>
           <h2 id="language-title">Lengua con IA creativa</h2>
-          <p>
-            Lectura comprensiva, gramática, ortografía y escritura creativa a partir
-            de dibujos subidos por el niño.
-          </p>
+          <p>El niño sube su dibujo y la IA genera un cuento personalizado con una pregunta de comprensión lectora.</p>
         </div>
+
+        <!-- Pasos -->
+        <div class="stepsBar" role="list">
+          <span id="step-1" data-state="active" role="listitem">1 · Sube el dibujo</span>
+          <span class="stepArrow" aria-hidden="true">→</span>
+          <span id="step-2" data-state="idle" role="listitem">2 · IA genera el cuento</span>
+          <span class="stepArrow" aria-hidden="true">→</span>
+          <span id="step-3" data-state="idle" role="listitem">3 · Responde la pregunta</span>
+        </div>
+
         <div class="languageLayout">
+          <!-- Panel izquierdo: subir dibujo -->
           <div class="uploadPanel">
-            <label class="uploadBox">
+            <label class="uploadBox" id="upload-area">
               <span>Subir dibujo JPG o PNG</span>
               <input type="file" id="drawing-input" accept="image/png,image/jpeg" />
             </label>
             <img class="preview" id="drawing-preview" alt="Vista previa del dibujo subido" hidden />
             <div class="previewPlaceholder" id="drawing-placeholder">Vista previa del dibujo</div>
-            <div class="techStack">
-              <span>Visión IA</span>
-              <span>Cuento 200-300 palabras</span>
-              <span>3-4 imágenes</span>
-              <span>Preguntas</span>
-            </div>
+            <button type="button" id="btn-generar" class="mathStart" disabled>Generar cuento</button>
           </div>
+
+          <!-- Panel derecho: resultado -->
           <div class="storyPanel">
-            <p class="storyLabel">Cuento generado</p>
-            <h3 id="drawing-name">Dibujo sin subir todavía</h3>
-            <p id="story-text"></p>
-            <div class="storyImages" aria-label="Imágenes generadas de ejemplo">
-              <span>Escena 1</span>
-              <span>Escena 2</span>
-              <span>Escena 3</span>
-              <span>Escena 4</span>
+            <!-- Estado vacío -->
+            <p id="story-empty" class="storyLabel">Sube un dibujo para comenzar.</p>
+
+            <!-- Loader -->
+            <p id="story-loader" class="storyLabel" hidden>
+              <span id="loader-msg">Analizando el dibujo…</span>
+            </p>
+
+            <!-- Resultado -->
+            <div id="story-result" hidden>
+              <p class="storyLabel">Cuento generado</p>
+              <p id="story-text"></p>
+              <fieldset class="questionBox">
+                <legend>Comprensión lectora</legend>
+                <label for="story-answer" id="story-question"></label>
+                <textarea id="story-answer" placeholder="Escribe tu respuesta…"></textarea>
+                <p class="storyHint" id="story-saved" aria-live="polite"></p>
+              </fieldset>
             </div>
-            <fieldset class="questionBox">
-              <legend>Comprensión lectora</legend>
-              <label for="story-answer">¿Qué hizo Lila para resolver el problema?</label>
-              <textarea id="story-answer" placeholder="Escribe tu respuesta..."></textarea>
-              <p class="storyHint" id="story-saved" aria-live="polite"></p>
-            </fieldset>
           </div>
-        </div>
-        <div class="grammarStrip">
-          <span>sustantivos</span>
-          <span>verbos</span>
-          <span>adjetivos</span>
-          <span>tildes</span>
         </div>
       </section>
 
