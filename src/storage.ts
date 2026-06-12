@@ -2,9 +2,7 @@
 
 export function leerStorage<T>(clave: string, porDefecto: T): T {
   const crudo = localStorage.getItem(clave);
-  if (crudo === null) {
-    return porDefecto;
-  }
+  if (crudo === null) return porDefecto;
   try {
     return JSON.parse(crudo) as T;
   } catch {

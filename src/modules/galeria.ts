@@ -5,9 +5,7 @@ import type { Wireframe } from "../types";
 
 export async function iniciarGaleria(): Promise<void> {
   const wireframes = await cargarJson<Wireframe[]>("/data/wireframes.json");
-  if (wireframes.length === 0) {
-    return;
-  }
+  if (wireframes.length === 0) return;
 
   const preview = $<HTMLDivElement>("#galeria-preview");
   const emoji = $<HTMLDivElement>("#galeria-emoji");
@@ -35,9 +33,7 @@ export async function iniciarGaleria(): Promise<void> {
 
   function renderizar(): void {
     const item = wireframes[actual];
-    if (!item) {
-      return;
-    }
+    if (!item) return;
     preview.style.background = item.bg;
     preview.style.borderColor = `${item.color}40`;
     emoji.textContent = item.emoji;
