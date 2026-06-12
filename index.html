@@ -141,34 +141,37 @@
       <section class="block" aria-labelledby="english-title">
         <div class="blockHeader">
           <p class="kicker">Bloque 3</p>
-          <h2 id="english-title">Inglés</h2>
-          <p>Vocabulario, frases y pronunciación generados desde el dibujo del niño.</p>
+          <h2 id="english-title">Inglés Interactivo ✨</h2>
+          <p>Toca un tema para escuchar la pronunciación y juega con nuestro quiz rápido.</p>
         </div>
-        <div class="scienceLayout">
-          <div class="labPanel">
-            <span>Palabra del dibujo</span>
-            <h3 id="english-word">Dragon — Dragón</h3>
-            <div class="matterDemo">
-              <span>Noun</span>
-              <span>Adjective</span>
-              <span>Verb</span>
+        
+        <div class="landing-english-demo">
+          <div class="interactive-demo-card">
+            
+            <div id="topic-list" class="topic-badges" aria-label="Temas de vocabulario">
+              </div>
+            
+            <div class="demo-screen">
+              <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Palabra seleccionada:</p>
+              <h3 id="english-word">Select a topic! 👆</h3>
             </div>
-          </div>
-          <div class="topicList" id="topic-list" aria-label="Temas de vocabulario">
-            <!-- Temas renderizados por ingles.ts -->
-          </div>
-          <div class="quizPanel">
-            <span>Quiz en inglés</span>
-            <p id="quiz-question">What color is the dragon in the drawing?</p>
-            <div class="quizOptions" id="quiz-options">
-              <button type="button" data-correct="true">Green</button>
-              <button type="button">Blue</button>
+
+            <div class="quiz-area">
+              <p id="quiz-question" style="font-weight: bold; margin-bottom: 10px;">Quick Quiz: Which one matches the word?</p>
+              
+              <div id="quiz-options" class="quizOptionsInteractive">
+                <button type="button" data-correct="false">🍎</button>
+                <button type="button" data-correct="true">🐉</button>
+                <button type="button" data-correct="false">🐶</button>
+              </div>
+              
+              <p class="quizFeedback" id="quiz-feedback" role="status" aria-live="polite"></p>
             </div>
-            <p class="quizFeedback" id="quiz-feedback" role="status" aria-live="polite"></p>
+            
           </div>
         </div>
       </section>
-
+      
       <!-- PIPELINE DE IA -->
       <section class="block pipelineBlock" aria-labelledby="pipeline-title">
         <div class="blockHeader">
