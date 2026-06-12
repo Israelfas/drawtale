@@ -1,5 +1,5 @@
 // Bloque 2 — Lengua con IA
-// Flujo: subir dibujo → Gemini Vision genera cuento + pregunta → niño responde
+// Flujo: subir dibujo → Groq Vision genera cuento + pregunta → niño responde
 
 import { $ } from "../dom";
 import { guardarStorage, leerStorage } from "../storage";
@@ -13,29 +13,30 @@ y responde SOLO con JSON válido, sin markdown ni texto extra, con esta estructu
   "pregunta": "Una pregunta de comprensión lectora sobre el cuento, dirigida al niño."
 }`;
 
-async function llamarGemini(b64: string, mediaType: string): Promise<{ cuento: string; pregunta: string }> {
-  const key = import.meta.env.VITE_GEMINI_KEY ?? "";
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{
-          parts: [
-            { inline_data: { mime_type: mediaType, data: b64 } },
-            { text: PROMPT }
-          ]
-        }]
-      })
-    }
-  );
+async function llamarGroq(b64: string, mediaType: string): Promise<{ cuento: string; pregunta: string }> {
+  const key = import.meta.env.VITE_GROQ_KEY ?? "";
+  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${key}`,
+    },
+    body: JSON.stringify({
+      model: "meta-llama/llama-4-scout-17b-16e-instruct",
+      max_tokens: 1000,
+      messages: [{
+        role: "user",
+        content: [
+          { type: "image_url", image_url: { url: `data:${mediaType};base64,${b64}` } },
+          { type: "text", text: PROMPT }
+        ]
+      }]
+    })
+  });
 
   if (!res.ok) throw new Error(`API error ${res.status}`);
-
   const data = await res.json();
-  const raw: string = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
-
+  const raw: string = data.choices?.[0]?.message?.content ?? "";
   return JSON.parse(raw.replace(/```json|```/g, "").trim()) as { cuento: string; pregunta: string };
 }
 
@@ -56,7 +57,7 @@ export function iniciarLengua(): void {
   const storyEmpty    = $<HTMLElement>("#story-empty");
   const resultArea    = $<HTMLElement>("#story-result");
   const cuentoEl      = $<HTMLParagraphElement>("#story-text");
-  const preguntaEl    = $<HTMLParagraphElement>("#story-question");
+  const preguntaEl    = $<HTMLElement>("#story-question");
   const respuesta     = $<HTMLTextAreaElement>("#story-answer");
   const avisoGuardado = $<HTMLParagraphElement>("#story-saved");
 
@@ -74,9 +75,10 @@ export function iniciarLengua(): void {
       const result = e.target?.result as string;
       b64 = result.split(",")[1] ?? "";
       thumb.src = result;
-      uploadLabel.hidden = true;
-      thumb.hidden = false;
+      uploadLabel.hidden = true;  // oculta el label con el texto
+      thumb.hidden = false;       // muestra la preview
       btnGenerar.disabled = false;
+      setStep(1);
     };
     reader.readAsDataURL(archivo);
   });
@@ -100,7 +102,7 @@ export function iniciarLengua(): void {
     }, 1800);
 
     try {
-      const { cuento, pregunta } = await llamarGemini(b64, mediaType);
+      const { cuento, pregunta } = await llamarGroq(b64, mediaType);
 
       clearInterval(loaderInterval);
       loader.hidden = true;
