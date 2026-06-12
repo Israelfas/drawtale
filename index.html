@@ -16,7 +16,7 @@
       <header class="hero" aria-labelledby="page-title">
         <div class="heroCopy">
           <p class="kicker">Drawtale Edu</p>
-          <h1 id="page-title">Aula interactiva para niños de 5 a 10 años</h1>
+          <h1 id="page-title">Aula interactiva para niños de 7 a 10 años</h1>
           <p>
             Tres bloques de aprendizaje conectan matemáticas, lengua e inglés
             con retos breves, visuales y una experiencia creativa basada en dibujos.
@@ -40,7 +40,7 @@
           <h2 id="problem-title">Practicar en casa suele sentirse repetitivo y poco conectado con la creatividad.</h2>
         </div>
         <p>
-          Ayudamos a niños de 5 a 10 años y a sus familias a reforzar matemáticas,
+          Ayudamos a niños de 7 a 10 años y a sus familias a reforzar matemáticas,
           lengua e inglés con actividades visuales y cuentos creados desde sus
           propios dibujos, para aumentar práctica, comprensión y motivación semanal.
         </p>
@@ -166,6 +166,44 @@
             </div>
             <p class="quizFeedback" id="quiz-feedback" role="status" aria-live="polite"></p>
           </div>
+        </div>
+      </section>
+
+      <!-- PIPELINE DE IA -->
+      <section class="block pipelineBlock" aria-labelledby="pipeline-title">
+        <div class="blockHeader">
+          <p class="kicker">Pipeline de inteligencia artificial</p>
+          <h2 id="pipeline-title">Del dibujo a la historia</h2>
+          <p>
+            El dibujo del niño recorre 4 etapas automáticas: visión, interpretación,
+            narrativa y síntesis de voz.
+          </p>
+        </div>
+        <div class="pipelineSteps" id="pipeline-steps">
+          <!-- Pasos renderizados por pipeline.ts -->
+        </div>
+        <div class="pipelineDemo">
+          <h3>Demo del pipeline</h3>
+          <p>Simulación del flujo completo. En el Hito 3 estará conectado a modelos reales.</p>
+          <button type="button" id="pipeline-run">▶ Ejecutar pipeline</button>
+          <div class="pipelineProgress" id="pipeline-progress" hidden></div>
+          <div class="pipelineResult" id="pipeline-result" hidden>
+            <div class="pipelineCard vision">
+              <p class="pipelineCardLabel">👁️ Interpretación</p>
+              <p id="pipeline-interpretacion"></p>
+            </div>
+            <div class="pipelineCard historia">
+              <p class="pipelineCardLabel">✍️ Historia generada</p>
+              <p id="pipeline-historia"></p>
+            </div>
+          </div>
+        </div>
+        <div class="pipelineStack" aria-label="Stack técnico">
+          <span>Vite + TypeScript</span>
+          <span>Anthropic SDK</span>
+          <span>ElevenLabs</span>
+          <span>Web Speech API</span>
+          <span>localStorage</span>
         </div>
       </section>
 

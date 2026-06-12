@@ -594,6 +594,206 @@ button {
   color: #b85627;
 }
 
+/* ===== Pipeline de IA ===== */
+.pipelineBlock {
+  padding-inline: 24px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.pipelineBlock .blockHeader p {
+  color: #94a3b8;
+}
+
+.pipelineBlock .kicker {
+  color: #a78bfa;
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(108, 71, 255, 0.5);
+}
+
+.pipelineSteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.pipelineStep {
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  justify-items: start;
+}
+
+.pipelineStep.activo {
+  border: 2px solid #7c3aed;
+  background: rgba(124, 58, 237, 0.15);
+}
+
+.pipelineEmoji {
+  font-size: 32px;
+}
+
+.pipelineBadge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.pipelineBadge.listo {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.pipelineBadge.pendiente {
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pipelineStep h3 {
+  font-size: 18px;
+  color: #f1f5f9;
+}
+
+.pipelineTech {
+  font-size: 13px;
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.pipelineDesc {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.pipelineDemo {
+  padding: 36px;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 16px;
+  background: rgba(124, 58, 237, 0.06);
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+}
+
+.pipelineDemo h3 {
+  font-size: 22px;
+  color: #f1f5f9;
+}
+
+.pipelineDemo > p {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+#pipeline-run {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 10px;
+  background: #7c3aed;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+#pipeline-run:disabled {
+  background: #374151;
+  cursor: not-allowed;
+}
+
+.pipelineProgress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pipelineChip {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  transition: all 0.3s;
+}
+
+.pipelineChip.activo {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+.pipelineResult {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pipelineCard {
+  padding: 20px;
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.pipelineCard.vision {
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.pipelineCard.historia {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.pipelineCardLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pipelineCard.vision .pipelineCardLabel {
+  color: #34d399;
+}
+
+.pipelineCard.historia .pipelineCardLabel {
+  color: #a78bfa;
+}
+
+.pipelineCard p:last-child {
+  font-size: 14px;
+  color: #e2e8f0;
+  line-height: 1.7;
+}
+
+.pipelineStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pipelineStack span {
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: #a78bfa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* ===== Galería de wireframes ===== */
 .galeriaLayout {
   display: grid;
@@ -862,8 +1062,13 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .languageBlock {
+  .languageBlock,
+  .pipelineBlock {
     padding-inline: 16px;
+  }
+
+  .pipelineResult {
+    grid-template-columns: 1fr;
   }
 
   .footer {
