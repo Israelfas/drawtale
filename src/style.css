@@ -690,6 +690,7 @@ img { max-width: 100%; display: block; }
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 450px;
   width: 100%;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -797,6 +798,246 @@ img { max-width: 100%; display: block; }
   25% { transform: translateX(-6px) rotate(-2deg); }
   75% { transform: translateX(6px) rotate(2deg); }
 }
+
+/* ===== BLOQUE 3 — INGLÉS (módulo completo: actividades + quiz + progreso) ===== */
+.inglesModule {
+  display: grid;
+  gap: 20px;
+}
+
+.inglesTabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.inglesTabs button {
+  background: #f8fbf7;
+  border: 1px solid rgba(23, 33, 28, 0.16);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #17211c;
+  transition: all 0.2s ease;
+}
+
+.inglesTabs button:hover { border-color: #2f7d68; }
+
+.inglesTabs button.activo {
+  background: #2f7d68;
+  color: #fff;
+  border-color: #2f7d68;
+}
+
+.inglesFiltro {
+  display: grid;
+  gap: 6px;
+  max-width: 420px;
+  margin: 0 auto 20px;
+}
+
+.inglesFiltro span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.inglesFiltro input {
+  height: 44px;
+  padding: 0 16px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.inglesFiltro input:focus { border-color: #2f7d68; }
+
+.inglesVacio {
+  text-align: center;
+  color: var(--muted);
+  padding: 20px 0;
+}
+
+.ingles-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 720px) {
+  .ingles-grid { grid-template-columns: 1fr; }
+}
+
+.ingles-card__boton {
+  margin-top: 4px;
+  height: 40px;
+  border-radius: 8px;
+  background: #f8fbf7;
+  border: 1px solid rgba(23, 33, 28, 0.16);
+  font-weight: 700;
+  font-size: 14px;
+  color: #17211c;
+  transition: all 0.15s ease;
+}
+
+.ingles-card__boton:hover {
+  background: #2f7d68;
+  color: #fff;
+  border-color: #2f7d68;
+}
+
+.inglesDetalle {
+  max-width: 480px;
+  margin: 24px auto 0;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.inglesDetalle .card__meta {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.inglesDetalle h3 { margin-top: 6px; }
+
+.inglesDetalle > p { color: var(--muted); margin: 8px 0 4px; }
+
+#ingles-detail-word-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#ingles-detail-word { color: #2f7d68; }
+#ingles-detail-translation { color: var(--muted); font-weight: 600; }
+
+.inglesDatos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.inglesDatos dt {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.inglesDatos dd { font-size: 15px; font-weight: 600; }
+
+.inglesAcciones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.inglesBoton {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.inglesBoton--primario { background: #2f7d68; color: #fff; }
+.inglesBoton--primario:hover { opacity: 0.9; }
+
+.inglesBoton--secundario {
+  background: #fff;
+  color: #2f7d68;
+  border: 2px solid #2f7d68;
+}
+.inglesBoton--secundario:hover { background: #f0fdfa; }
+
+.quizOptionsInteractive--texto button {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 16px;
+}
+
+.inglesQuizProgreso {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.inglesQuizFinal { text-align: center; }
+
+.inglesQuizResultado {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #17211c;
+}
+
+.inglesResumen {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+.inglesResumen__valor {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #2f7d68;
+  text-align: center;
+}
+
+.inglesResumen__label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.inglesProgresoLista {
+  display: grid;
+  gap: 10px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.progreso-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.progreso-item h3 { font-size: 16px; }
+
+.progreso-item__estado {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.progreso-item__estado.ok { color: #2f7d68; }
+
+.progreso-item span { font-size: 13px; color: var(--muted); font-weight: 600; }
 
 /* ===== PIPELINE DE IA ===== */
 .pipelineBlock {

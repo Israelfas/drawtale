@@ -11,10 +11,9 @@ import { iniciarFormulario } from "./modules/formulario";
 
 async function iniciar(): Promise<void> {
   iniciarLengua();
-  iniciarIngles();
   iniciarPipeline();
   iniciarFormulario();
-  await Promise.all([iniciarMatematicas(), iniciarGaleria(), iniciarFaq()]);
+  await Promise.all([iniciarMatematicas(), iniciarIngles(), iniciarGaleria(), iniciarFaq()]);
 }
 
 void iniciar();

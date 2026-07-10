@@ -146,32 +146,93 @@
         <div class="blockHeader">
           <p class="kicker">Bloque 3</p>
           <h2 id="english-title">Inglés Interactivo ✨</h2>
-          <p>Toca un tema para escuchar la pronunciación y juega con nuestro quiz rápido.</p>
+          <p>Elige una actividad, escucha la pronunciación, juega el quiz y sigue tu progreso.</p>
         </div>
-        
-        <div class="landing-english-demo">
-          <div class="interactive-demo-card">
-            
-            <div id="topic-list" class="topic-badges" aria-label="Temas de vocabulario">
+
+        <div class="inglesModule">
+          <nav class="inglesTabs" aria-label="Secciones del módulo de inglés">
+            <button type="button" data-ingles-tab="actividades" class="activo">📚 Actividades</button>
+            <button type="button" data-ingles-tab="quiz">🎯 Quiz</button>
+            <button type="button" data-ingles-tab="progreso">🏆 Progreso</button>
+          </nav>
+
+          <!-- Panel: Actividades -->
+          <div data-ingles-panel="actividades">
+            <label class="inglesFiltro">
+              <span>Filtrar por título, descripción o nivel</span>
+              <input type="search" id="ingles-filtro" placeholder="Ej. animals, basico, food" />
+            </label>
+
+            <p id="ingles-activities-empty" class="inglesVacio" hidden>No hay actividades con ese filtro.</p>
+
+            <div id="ingles-activities-grid" class="activityGrid ingles-grid" aria-label="Actividades de inglés"></div>
+
+            <section id="ingles-detail" class="inglesDetalle" hidden>
+              <span id="ingles-detail-meta" class="card__meta"></span>
+              <h3 id="ingles-detail-titulo"></h3>
+              <p id="ingles-detail-descripcion"></p>
+
+              <div class="demo-screen">
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Palabra del tema:</p>
+                <h3 id="ingles-detail-word-wrap">
+                  <span id="ingles-detail-emoji"></span>
+                  <strong id="ingles-detail-word"></strong>
+                  <span id="ingles-detail-translation"></span>
+                </h3>
+                <button type="button" id="ingles-detail-listen" class="inglesBoton inglesBoton--primario">🔊 Listen</button>
               </div>
-            
-            <div class="demo-screen">
-              <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Palabra seleccionada:</p>
-              <h3 id="english-word">Select a topic! 👆</h3>
+
+              <dl class="inglesDatos">
+                <div>
+                  <dt>Objetivo</dt>
+                  <dd id="ingles-detail-objetivo"></dd>
+                </div>
+                <div>
+                  <dt>Intentos registrados</dt>
+                  <dd id="ingles-detail-intentos">0</dd>
+                </div>
+              </dl>
+
+              <div class="inglesAcciones">
+                <button type="button" id="ingles-detail-practicada" class="inglesBoton inglesBoton--primario">Marcar practicada</button>
+                <button type="button" id="ingles-detail-ir-quiz" class="inglesBoton inglesBoton--secundario">Ir al quiz</button>
+              </div>
+            </section>
+          </div>
+
+          <!-- Panel: Quiz -->
+          <div data-ingles-panel="quiz" hidden>
+            <div class="interactive-demo-card">
+              <div id="quiz-en-curso-ingles">
+                <p id="quiz-question-ingles" style="font-weight: bold; margin-bottom: 10px;"></p>
+
+                <div id="quiz-options-ingles" class="quizOptionsInteractive quizOptionsInteractive--texto"></div>
+
+                <p class="quizFeedback" id="quiz-feedback-ingles" role="status" aria-live="polite"></p>
+                <p class="inglesQuizProgreso" id="quiz-progress-ingles"></p>
+              </div>
+
+              <div id="quiz-final-ingles" class="inglesQuizFinal" hidden>
+                <p id="quiz-resultado-ingles" class="inglesQuizResultado"></p>
+                <button type="button" id="quiz-reiniciar-ingles" class="inglesBoton inglesBoton--primario">Play again</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel: Progreso -->
+          <div data-ingles-panel="progreso" hidden>
+            <div class="inglesResumen">
+              <div>
+                <span id="progreso-ingles-practicadas" class="inglesResumen__valor">0</span>
+                <span class="inglesResumen__label">practicadas</span>
+              </div>
+              <div>
+                <span id="progreso-ingles-puntos" class="inglesResumen__valor">0</span>
+                <span class="inglesResumen__label">puntos</span>
+              </div>
             </div>
 
-            <div class="quiz-area">
-              <p id="quiz-question" style="font-weight: bold; margin-bottom: 10px;">Quick Quiz: Which one matches the word?</p>
-              
-              <div id="quiz-options" class="quizOptionsInteractive">
-                <button type="button" data-correct="false">🍎</button>
-                <button type="button" data-correct="true">🐉</button>
-                <button type="button" data-correct="false">🐶</button>
-              </div>
-              
-              <p class="quizFeedback" id="quiz-feedback" role="status" aria-live="polite"></p>
-            </div>
-            
+            <div id="progreso-ingles-lista" class="inglesProgresoLista"></div>
           </div>
         </div>
       </section>

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "animals",
+    "titulo": "Animals",
+    "descripcion": "Aprende nombres de animales y practica su pronunciación.",
+    "nivel": "Basico",
+    "puntos": 15,
+    "objetivo": "Reconocer y pronunciar el vocabulario de animales."
+  },
+  {
+    "id": "colors",
+    "titulo": "Colors",
+    "descripcion": "Colores en inglés con apoyo visual y sonoro.",
+    "nivel": "Basico",
+    "puntos": 15,
+    "objetivo": "Asociar cada color con su nombre en inglés."
+  },
+  {
+    "id": "numbers",
+    "titulo": "Numbers",
+    "descripcion": "Números básicos en inglés listos para contar.",
+    "nivel": "Basico",
+    "puntos": 15,
+    "objetivo": "Practicar los números del uno en adelante."
+  },
+  {
+    "id": "family",
+    "titulo": "Family",
+    "descripcion": "Nombra a los miembros de la familia en inglés.",
+    "nivel": "Intermedio",
+    "puntos": 20,
+    "objetivo": "Identificar vocabulario de la familia."
+  },
+  {
+    "id": "food",
+    "titulo": "Food",
+    "descripcion": "Vocabulario de alimentos cotidianos.",
+    "nivel": "Intermedio",
+    "puntos": 20,
+    "objetivo": "Reconocer nombres de comidas frecuentes."
+  },
+  {
+    "id": "body",
+    "titulo": "Body",
+    "descripcion": "Partes del cuerpo con pronunciación guiada.",
+    "nivel": "Intermedio",
+    "puntos": 20,
+    "objetivo": "Nombrar partes del cuerpo en inglés."
+  },
+  {
+    "id": "nature",
+    "titulo": "Nature",
+    "descripcion": "Vocabulario relacionado con la naturaleza.",
+    "nivel": "Avanzado",
+    "puntos": 25,
+    "objetivo": "Ampliar vocabulario sobre el entorno natural."
+  }
+]
